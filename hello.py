@@ -11,9 +11,9 @@ class hello(object):
 		return  render.form()
 
 class reslove(object):
-	def GET(self):
+	def POST(self):
 	    i = web.input()
-	    result = get6PmData('http://www.6pm.com/grazie-flossie-red')
+	    result = get6PmData(i.url)
 	    render = web.template.render("./", globals={'str':str})
 	    return render.result(result)
 

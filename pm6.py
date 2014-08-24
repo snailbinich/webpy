@@ -43,6 +43,8 @@ def get6PmData(url):
     # for dimen in dimensions:
     #     result +=  dimen
         
+    dimensionIdToNameJson = re.search(r'(dimensionIdToNameJson[\s]*\=)([^;]+)',content).group(2)
+    result['dimensionIdToNameJson'] = json.loads(dimensionIdToNameJson)
 
     valueIdToName = re.search(r'(valueIdToNameJSON[\s]*\=)([^;]+)',content).group(2)
     valueIdtoNameJson = json.loads(valueIdToName)
@@ -53,7 +55,8 @@ def get6PmData(url):
     result['stock'] = json.loads(stock[1])
     # test = json.loads(stock[1])
 
-    # imgs = re.search(r'(http://[^\s]*MULTIVIEW.jpg)',content).group()
+    imgs = re.search(r'(http://[^\s]*MULTIVIEW.jpg)',content).group()
+    result['imgs'] = imgs
     # #result +=  test
     # for item in test:
     #     for dimen in dimensions:

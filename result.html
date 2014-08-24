@@ -1,15 +1,34 @@
 $def with(result)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>6PM</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <style type="text/css">
+	</style>
+</head>
+<body>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
   	<table  class="table">
+      <tr>
+         <th>颜色</th>
+         <th>库存</th>
+      </tr>
 
 $for item in  result['stock']: 
     <tr>
-    	<td>$result['colorNames'][u''.$item['color']]</td>
+    	<td>$result['colorNames'][str(item['color'])]</td>
+    	<td>$item['onHand']</td>
     </tr>
 
- </table>
+</table>
 </div>
 </div>
+</body>
+</html>
 	

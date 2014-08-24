@@ -11,10 +11,10 @@ class hello(object):
 		return  render.form()
 
 class reslove(object):
-	def POST(self):
+	def GET(self):
 	    i = web.input()
 	    result = get6PmData('http://www.6pm.com/grazie-flossie-red')
-	    render = web.template.render("./")
+	    render = web.template.render("./", globals={'str':str})
 	    return render.result(result)
 
 if __name__ == "__main__":

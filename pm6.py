@@ -31,9 +31,13 @@ def get6PmData(url):
 
     colorNames  =  re.search(r'(var[\s]colorNames [\s]*\=)([^;]+)',content).group(2)
     colorNames =  colorNames.replace("\n", "").strip().replace("\'","\"")
-
     colorNames = json.loads(colorNames)
     result['colorNames'] = colorNames
+
+    colorPrices  =  re.search(r'(var[\s]colorPrices [\s]*\=)([^;]+)',content).group(2)
+    colorPrices =  colorPrices.replace("\n", "").strip().replace("\'","\"")
+    colorPrices = json.loads(colorPrices)
+    result['colorPrices'] = colorPrices
  
 
 

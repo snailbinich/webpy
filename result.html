@@ -15,13 +15,15 @@ $def with(result)
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h1>$result['brandName']  $result['productName']</h1>
-    <img src="$result['imgs']" />
+    <img src="$result['imgs']" style="height:150px;"/>
   	<table  class="table">
       <tr>
          <th>颜色</th>
          $for dim in result['dimensions']:
              <th>$result['dimensionIdToNameJson'][dim]</th>
          <th>库存</th>
+         <th>原价格</th>
+         <th>现价格</th>
       </tr>
 
 $for item in  result['stock']: 
@@ -30,6 +32,8 @@ $for item in  result['stock']:
         $for dim in result['dimensions']:
             <td>$result['valueIdtoNameJson'][item[dim]]['value']</td>
     	<td>$item['onHand']</td>
+    	<td><del>$result['colorPrices'][str(item['color'])]['was']</del></td>
+    	<td>$result['colorPrices'][str(item['color'])]['now']</td>
     </tr>
 
 </table>
